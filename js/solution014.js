@@ -38,34 +38,55 @@ function checkIfNum(word){
 
 function incrementString(string){
 
-let indexNum = -1
+    let indexNum = -1
+    
+    for(i=(string.length-1); i>0; i--){
+        
+        let chartoNum = Number(string[i])
+        
+        if(isNaN(chartoNum)){
+            indexNum = i + 1
+        }
+        
+        if(indexNum !== -1){
+            break;
+        }
+    }
 
-for(i=0; i<string.length; i++){
+    let nummyNum = string.slice(indexNum)
     
-    let chartoNum = Number(string[i])
-    
-    if(!isNaN(chartoNum)){
-        indexNum = i
+    if(isNaN(nummyNum)){
+        return string + 1
     }
     
-    if(indexNum !== -1){
-        break;
+
+    console.log(nummyNum)
+    
+    
+    let incremNum = Number(nummyNum) + 1
+    
+    
+    let incremString = incremNum.toString()
+    
+    
+    
+    let padded = incremString.padStart(nummyNum.length, "0")
+    
+    let first = Number(string.charAt(0))
+
+    if(!isNaN(first)){
+         return padded
     }
-}
+    
+    return string.slice(0,indexNum) + padded
+    
 
-let nummyNum = string.slice(indexNum)
-
-//if charAt 0,1,2 etc is 0 count++ ? then padstart to count? 
-// nummyNum.length < nummyNum++.length, nummyNum pad start? 
-nummyNum++
-
-
-return string.slice(0,indexNum) + nummyNum
-
-}
-
-
-
-console.log(incrementString("bee42"))
+    }
+    
+    
+    
+    console.log(incrementString("009"))
 
 //console.log(incrementString("sleepy67"))
+
+//If the string does not end with a number. the number 1 should be appended to the new string
