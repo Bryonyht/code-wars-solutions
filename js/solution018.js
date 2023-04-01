@@ -10,19 +10,40 @@
 //add values to our out put unless a # is after them or they are a "#"
 
 
-function cleanString(s) {
-    let string = ""
+// function cleanString(s) {
+//     let string = ""
     
-    for(i=1; i<=s.length; i++)
-    if(s[i]!=="#" && s[i-1]!=="#") {
+//     for(i=1; i<=s.length; i++)
+//     if(s[i]!=="#" && s[i-1]!=="#") {
         
-        string += s[i-1] 
-    }
+//         string += s[i-1] 
+//     }
 
-    return string
+//     return string
+//   }
+
+// console.log(cleanString("a#bc#d")) // #b#
+
+// console.log(cleanString("dgh"))
+// console.log(cleanString(""))
+
+
+function cleanString(s) {
+    
+  let arr = s.split("")
+  
+  //while(arr.includes("#")){
+    let first = arr.indexOf("#")
+  arr =  arr.slice(0, first).concat(arr.splice(first-1, 2), arr.slice(first))
+ // }
+
+ console.log(arr.join(""))
+  
   }
 
-console.log(cleanString("a#bc#d")) // #b#
+cleanString("#bc#d")
 
-console.log(cleanString("dgh"))
-console.log(cleanString(""))
+
+
+
+
