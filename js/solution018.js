@@ -41,7 +41,7 @@ function cleanString(s) {
   
   }
 
-cleanString("#bc#d")
+cleanString("#bc#d") //-> d#bc#
 
 
 
