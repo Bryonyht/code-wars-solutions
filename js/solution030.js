@@ -7,7 +7,7 @@
  //return new string
 
 
-function removeUrlAnchor(url){
+//..
     let urlWithoutAnchor = ""
 
     for(i=0; i<url.length; i++){
